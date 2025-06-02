@@ -1,39 +1,27 @@
-// src/app/page.js
-import LandingPagePresenter from "./presenters/LandingPagePresenter";
+'use client';
+import { useEffect, useState } from 'react';
+import { HomePresenter } from './presenter/HomePresenter';
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        {/* Presenter akan menampilkan konten dari LandingPage */}
-        <LandingPagePresenter />
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+export default function HomePage() {
+    const [message, setMessage] = useState('');
+    const [presenter, setPresenter] = useState(null);
+
+    useEffect(() => {
+        const p = new HomePresenter({ setMessage });
+        p.loadData();
+        setPresenter(p);
+    }, []);
+
+    return (
+        <main className="flex min-h-screen flex-col items-center justify-center p-24">
+            <h1 className="text-3xl font-bold">LearnNextJS</h1>
+            <p className="mt-4 text-xl">{message}</p>
+            <button
+                className="mt-6 px-6 py-2 bg-white text-black rounded hover:bg-gray-300 transition"
+                onClick={() => presenter?.updateMessage()}
+            >
+                Ganti Pesan
+            </button>
+        </main>
+    );
 }
