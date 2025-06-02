@@ -1,0 +1,60 @@
+/* src/app/styles/Header.css */
+
+.header-container {
+  background-color: #00b8b8; /* Warna latar belakang turquoise */
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo .logo-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #d1d1d1; /* Warna abu-abu untuk lingkaran */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo .logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.header-button {
+  background-color: #1e3a8a; /* Biru gelap untuk tombol */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.header-button:hover {
+  background-color: #2563eb; /* Biru lebih terang saat hover */
+}
