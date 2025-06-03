@@ -1,10 +1,21 @@
+import SectionTitle from './components/SectionTitle';
+import { AboutContent } from './components/AboutContent';
+import { FeatureList } from './components/FeatureList';
+import { Testimonials } from './components/Testimonials';
+import { StatsSection } from './components/StatsSection';
+import { TimelineSection } from './components/TimelineSection';
+import { CallToAction } from './components/CallToAction';
+
 export default function AboutPage() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center p-24">
-            <h1 className="text-3xl font-bold">Tentang LearnNextJS</h1>
-            <p className="mt-4 text-xl">
-                Ini adalah aplikasi demo sederhana menggunakan Next.js + MVP.
-            </p>
+        <main className="min-h-screen bg-black text-white px-6 md:px-16 py-20 space-y-24">
+            <SectionTitle>About</SectionTitle>
+            <AboutContent />
+            <FeatureList />
+            <Testimonials />
+            <StatsSection />
+            <TimelineSection />
+            <CallToAction />
         </main>
     );
 }
