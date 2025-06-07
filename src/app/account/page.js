@@ -1,5 +1,5 @@
-import { dummyVideos } from './dummy/videos';
-import { dummyProfile } from './dummy/profile';
+import { dummyVideos } from './dummys/videos';
+import { dummyProfile } from './dummys/profile';
 import VideoCard from './components/VideoCard';
 import ProfileSection from './components/ProfilSection';
 
