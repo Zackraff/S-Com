@@ -1,10 +1,11 @@
+import SectionTitle from "./components/SectionTitle";
+import { ContactContent } from "./components/ContactContent";
+
 export default function ContactPage() {
-    return (
-        <main className="flex min-h-screen flex-col items-center justify-center p-24">
-            <h1 className="text-3xl font-bold">Kontak Kami</h1>
-            <p className="mt-4 text-xl">
-                Silakan hubungi kami melalui email: contact@learnnextjs.dev
-            </p>
-        </main>
-    );
+  return (
+    <main className="min-h-screen bg-black text-white px-6 md:px-16 py-20 space-y-24">
+      <SectionTitle>Contact</SectionTitle>
+      <ContactContent />
+    </main>
+  );
 }
