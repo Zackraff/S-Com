@@ -1,6 +1,6 @@
 export function TimelineSection() {
     return (
-        <section className="max-w-3xl mx-auto">
+        <section className="w-full">
             <h3 className="text-xl font-bold mb-6">Timeline Pengembangan</h3>
             <ol className="space-y-4 text-sm text-gray-300 border-l-4 border-white pl-6">
                 <li>

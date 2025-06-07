@@ -14,8 +14,10 @@ export default function AboutPage() {
             <FeatureList />
             <Testimonials />
             <StatsSection />
-            <TimelineSection />
-            <CallToAction />
+            <div className="block md:flex items-center justify-between max-w-5xl mx-auto space-y-20 md:space-y-0">
+                <TimelineSection />
+                <CallToAction />
+            </div>
         </main>
     );
 }
