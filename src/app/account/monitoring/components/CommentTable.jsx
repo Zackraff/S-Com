@@ -11,7 +11,7 @@ export default function CommentTable({ comments }) {
                             <th className="p-3">No</th>
                             <th className="p-3">Comments</th>
                             <th className="p-3">Accounts</th>
-                            <th className="p-3">Exclude</th>
+                            <th className="p-3 text-center">Exclude</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-neutral-700">
@@ -37,10 +37,10 @@ export default function CommentTable({ comments }) {
                                         </div>
                                     </div>
                                 </td>
-                                <td className="p-3 sm:table-cell hidden sm:block text-sm text-gray-200">
+                                <td className="p-3 sm:table-cell hidden text-sm text-gray-200">
                                     {item.comment}
                                 </td>
-                                <td className="p-3 sm:table-cell hidden sm:block text-sm text-gray-300">
+                                <td className="p-3 sm:table-cell hidden text-sm text-gray-300">
                                     {item.account}
                                 </td>
                                 <td className="p-3 sm:table-cell block sm:text-center">
