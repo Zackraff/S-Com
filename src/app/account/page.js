@@ -1,7 +1,7 @@
 import { dummyVideos } from './dummys/videos';
 import { dummyProfile } from './dummys/profile';
 import VideoCard from './components/VideoCard';
-import ProfileSection from './components/ProfilSection';
+import ProfileSection from './components/ProfileSection';
 
 export default function AccountPage() {
     return (
