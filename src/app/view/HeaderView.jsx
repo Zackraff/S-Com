@@ -34,11 +34,11 @@ export default function HeaderView() {
             <Link href="/about" className="hover:underline">
               About
             </Link>
-            <Link href="/contact" className="hover:underline">
-              Contact
-            </Link>
             <Link href="/service" className="hover:underline">
               Service
+            </Link>
+            <Link href="/contact" className="hover:underline">
+              Contact
             </Link>
             <Link href="/login" className="hover:underline font-bold px-4 py-1 border border-white rounded ml-4">
               Get Started
@@ -65,11 +65,11 @@ export default function HeaderView() {
           <Link href="/about" onClick={() => setOpen(false)} className="hover:underline">
             About
           </Link>
-          <Link href="/contact" onClick={() => setOpen(false)} className="hover:underline">
-            Contact
-          </Link>
           <Link href="/service" onClick={() => setOpen(false)} className="hover:underline">
             Service
+          </Link>
+          <Link href="/contact" onClick={() => setOpen(false)} className="hover:underline">
+            Contact
           </Link>
           <Link href="/login" onClick={() => setOpen(false)} className="hover:underline font-bold px-3 py-1 border border-white rounded mt-2">
             Get Started

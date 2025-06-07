@@ -2,7 +2,7 @@ export function ServiceContent() {
   return (
     <section className="py-16 px-6">
       <header className="text-center mb-12">
-        <h3 className="text-3xl font-bold text-white">Layanan</h3>
+        <h3 className="text-3xl font-bold text-white">Layanan S-MoniCom</h3>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
