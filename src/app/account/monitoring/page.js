@@ -1,16 +1,23 @@
-import CommentTable from './components/CommentTable';
-import FilterSidebar from './components/FilterSidebar';
+'use client';
 
-import { dummyComments } from './dummys/comments';
-import { dummyFilters } from './dummys/filters';
+import { useMonitoringPresenter } from './presenters/useMonitoringPresenter';
+import FilterSidebar from './components/FilterSidebar';
+import CommentTable from './components/CommentTable';
 
 export default function MonitoringPage() {
+    const { comments, keywords, presenter } = useMonitoringPresenter();
+
     return (
-        <main className="min-h-screen bg-black text-white p-6 md:p-10 flex flex-col-reverse lg:flex-row gap-6">
-            <section className="flex-1">
-                <CommentTable comments={dummyComments} />
-            </section>
-            <FilterSidebar keywords={dummyFilters.keywords} />
-        </main>
+        <>
+            <FilterSidebar
+                keywords={keywords}
+                onAdd={(k) => presenter.toggleKeyword(k)}
+                onToggle={(k) => presenter.toggleKeyword(k)}
+                onApply={() => presenter.applyFilter()}
+                onSelectAll={(v) => presenter.toggleSelectAll(v)}
+                onRemove={() => presenter.deleteSelectedComments()}
+            />
+            <CommentTable comments={comments} />
+        </>
     );
 }
