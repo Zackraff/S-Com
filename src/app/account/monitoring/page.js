@@ -4,8 +4,24 @@ import CommentTable from './components/CommentTable';
 import FilterSidebar from './components/FilterSidebar';
 import { CommentPresenter } from './presenters/CommentPresenter';
 import { dummyComments } from './dummys/comments';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 export default function MonitoringPage() {
+    const { data: session, status } = useSession();
+    const router = useRouter();
+
+    // ⛔ Redirect kalau belum login
+    useEffect(() => {
+        if (status === 'unauthenticated') {
+            router.push('/login');
+        }
+    }, [status]);
+
+    if (status === 'loading')
+        return <p className="text-white p-10">Loading session...</p>;
+    if (status === 'unauthenticated') return null; // biar gak flicker sebelum redirect
+
     const [filters, setFilters] = useState({
         keywords: [],
         spamOnly: false,
