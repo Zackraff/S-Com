@@ -1,6 +1,6 @@
 import './globals.css';
 import HeaderView from './components/HeaderView';
-import SessionWrapper from './SessionWrapper';
+import SessionProvider from './SessionWrapper';
 
 export const metadata = {
     title: 'LearnNextJS',
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className="text-light">
                 <HeaderView />
-                <SessionWrapper>{children}</SessionWrapper>{' '}
+                <SessionProvider>{children}</SessionProvider>
             </body>
         </html>
     );

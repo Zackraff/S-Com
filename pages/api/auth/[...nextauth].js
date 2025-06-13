@@ -13,7 +13,7 @@ export default NextAuth({
             },
         }),
     ],
-    debug: true, // 👈 tambahkan ini
+    debug: true,
     callbacks: {
         async jwt({ token, account }) {
             if (account) token.accessToken = account.access_token;
