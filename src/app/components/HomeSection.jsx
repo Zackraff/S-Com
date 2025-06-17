@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function HomeSection() {
     return (
-        <div className="min-h-screen bg-black flex items-center justify-center px-4 py-12">
+        <div className="h-auto lg:min-h-screen bg-black flex items-center justify-center px-4 py-12">
             <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                 <div className=" border-0 lg:border-l-4 border-cyan-500 p-8 rounded-lg shadow-lg h-full flex flex-col justify-between">
                     <h1 className="text-2xl lg:text-5xl font-extrabold text-cyan-400 mb-6">

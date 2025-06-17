@@ -5,13 +5,16 @@ import Footer from './components/Footer';
 import SessionProvider from './SessionWrapper';
 
 export const metadata = {
-    title: 'LearnNextJS',
-    description: 'Sederhana App dengan Next.js + MVP',
+    title: 'S-MoniCom',
+    description: 'Aplikasi Monitoring Komentar Youtube',
 };
 
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
+            <head>
+                <link rel="icon" href="/Logo1.png" />
+            </head>
             <body className="text-light">
                 <SessionProvider>
                     <Header />
