@@ -28,7 +28,7 @@ export class ProfilePresenter {
                 subscribers: `${channel.statistics.subscriberCount} subscribers`,
                 videos: `${channel.statistics.videoCount} videos`,
                 bio: channel.snippet.description,
-                discordUrl: null, // optional
+                discordUrl: null,
             });
         } catch (err) {
             console.error('❌ Failed to fetch profile:', err);

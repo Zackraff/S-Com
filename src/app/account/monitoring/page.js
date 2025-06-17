@@ -11,7 +11,7 @@ export default function MonitoringPage() {
     const { data: session, status } = useSession();
     const router = useRouter();
 
-    const presenterRef = useRef(null); // ✅ inisialisasi presenter di useRef
+    const presenterRef = useRef(null);
 
     const [filters, setFilters] = useState({
         keywords: [],
@@ -27,7 +27,6 @@ export default function MonitoringPage() {
         setAllComments(newComments);
     };
 
-    // ✅ Safe create presenter once (only if not already created)
     if (!presenterRef.current) {
         presenterRef.current = new CommentPresenter({
             updateComments: setFilteredComments,
@@ -37,7 +36,6 @@ export default function MonitoringPage() {
 
     const presenter = presenterRef.current;
 
-    // ⛔ Redirect kalau belum login
     useEffect(() => {
         if (status === 'unauthenticated') {
             router.push('/login');

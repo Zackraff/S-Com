@@ -14,12 +14,11 @@ export default function LoginPage() {
         presenterRef.current = new LoginPresenter({});
     }, []);
 
-    // ⏩ Redirect to /account if user is authenticated
     useEffect(() => {
         if (status === 'authenticated') {
-            router.push('/account');
+            router.replace('/account');
         }
-    }, [status]);
+    }, [status, router]);
 
     if (status === 'loading') {
         return (
@@ -27,6 +26,10 @@ export default function LoginPage() {
                 Loading...
             </div>
         );
+    }
+
+    if (status === 'authenticated') {
+        return null;
     }
 
     return (

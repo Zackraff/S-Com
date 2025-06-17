@@ -1,5 +1,7 @@
 import './globals.css';
-import HeaderView from './components/HeaderView';
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 import SessionProvider from './SessionWrapper';
 
 export const metadata = {
@@ -11,8 +13,11 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className="text-light">
-                <HeaderView />
-                <SessionProvider>{children}</SessionProvider>
+                <SessionProvider>
+                    <Header />
+                    {children}
+                    <Footer />
+                </SessionProvider>
             </body>
         </html>
     );

@@ -9,11 +9,11 @@ export default NextAuth({
             authorization: {
                 params: {
                     scope: 'openid email profile https://www.googleapis.com/auth/youtube.readonly',
+                    prompt: 'select_account', // ✅ Tambahkan ini
                 },
             },
         }),
     ],
-    debug: true,
     callbacks: {
         async jwt({ token, account }) {
             if (account) token.accessToken = account.access_token;

@@ -1,6 +1,4 @@
-// app/account/models/videos.js
 export async function getUserVideos(accessToken) {
-    // Step 1: Get the user's uploads playlist ID
     const channelRes = await fetch(
         'https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true',
         {
@@ -17,7 +15,6 @@ export async function getUserVideos(accessToken) {
 
     if (!uploadsId) throw new Error('No uploads playlist found');
 
-    // Step 2: Get videos from the uploads playlist
     const playlistRes = await fetch(
         `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${uploadsId}`,
         {
@@ -35,7 +32,7 @@ export async function getUserVideos(accessToken) {
         title: item.snippet.title,
         thumbnail: item.snippet.thumbnails?.medium?.url || '',
         channel: item.snippet.channelTitle,
-        views: '-', // Optional: You can enhance by calling videos?part=statistics&id=...
+        views: '-',
         uploadedAt: new Date(item.snippet.publishedAt).toLocaleDateString(),
     }));
 }

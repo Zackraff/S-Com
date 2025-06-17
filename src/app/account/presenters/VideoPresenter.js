@@ -1,4 +1,3 @@
-// app/account/presenters/VideoPresenter.js
 import { getUserVideos } from '../models/videos';
 
 export class VideoPresenter {

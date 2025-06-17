@@ -2,6 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import ProfileSection from './components/ProfileSection';
 import VideoCard from './components/VideoCard';
 import { ProfilePresenter } from './presenters/ProfilePresenter';
@@ -11,7 +12,17 @@ export default function AccountPage() {
     const { data: session, status } = useSession();
     const [profile, setProfile] = useState(null);
     const [videos, setVideos] = useState([]);
-    const presenterRef = useRef({});
+    const presenterRef = useRef({
+        profilePresenter: null,
+        videoPresenter: null,
+    });
+    const router = useRouter();
+
+    useEffect(() => {
+        if (status === 'unauthenticated') {
+            router.push('/login');
+        }
+    }, [status]);
 
     useEffect(() => {
         if (session) {
@@ -21,7 +32,6 @@ export default function AccountPage() {
             });
             const videoPresenter = new VideoPresenter({ session, setVideos });
             presenterRef.current = { profilePresenter, videoPresenter };
-
             profilePresenter.init();
             videoPresenter.init();
         }
@@ -43,11 +53,15 @@ export default function AccountPage() {
         );
     }
 
+    const handleVideoClick = () => {
+        router.push('/account/monitoring');
+    };
+
     return (
         <main className="bg-black text-white min-h-screen px-6 md:px-20 py-12 space-y-12">
             {profile && <ProfileSection profile={profile} />}
 
-            <h2 className="text-lg font-semibold text-center text-white py-12">
+            <h2 className="text-lg font-semibold text-center py-12">
                 Silakan pilih atau klik video yang ingin kamu monitoring.
                 <br className="hidden md:block" />
                 Aplikasi ini membantu mendeteksi dan menyembunyikan komentar{' '}
@@ -62,7 +76,11 @@ export default function AccountPage() {
                 ) : (
                     <div className="flex flex-wrap gap-y-6 justify-center md:justify-between">
                         {videos.map((video) => (
-                            <div key={video.id} className="mr-4">
+                            <div
+                                key={video.id}
+                                className="mr-4 cursor-pointer"
+                                onClick={handleVideoClick}
+                            >
                                 <VideoCard video={video} />
                             </div>
                         ))}

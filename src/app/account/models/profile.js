@@ -28,7 +28,7 @@ export class ProfilePresenter {
             this.setProfile(buildUserProfile(this.session, youtubeData));
         } catch (err) {
             console.error('❌ Failed to fetch channel data', err);
-            this.setProfile(buildUserProfile(this.session)); // fallback basic only
+            this.setProfile(buildUserProfile(this.session));
         }
     }
 }

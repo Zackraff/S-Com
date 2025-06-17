@@ -10,7 +10,7 @@ export default function ProfileSection({ profile }) {
             <div className="flex-1 text-center md:text-left">
                 <h2 className="text-2xl font-bold mb-1">{profile.name}</h2>
                 <p className="text-sm text-gray-300">
-                    @{profile.username} • {profile.subscribers} •{' '}
+                    {profile.username} • {profile.subscribers} •{' '}
                     {profile.videos}
                 </p>
 
@@ -31,10 +31,6 @@ export default function ProfileSection({ profile }) {
                         </a>
                     </p>
                 )}
-
-                <button className="mt-4 bg-white text-black font-semibold px-4 py-1 rounded hover:bg-gray-200 transition-all">
-                    Subscribe
-                </button>
             </div>
         </section>
     );

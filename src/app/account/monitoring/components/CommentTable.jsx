@@ -28,6 +28,8 @@ export default function CommentTable({
     const handlePrev = () => setPage((p) => Math.max(1, p - 1));
     const handleNext = () => setPage((p) => (p < totalPages ? p + 1 : p));
 
+    const emptyRows = perPage - paginated.length;
+
     return (
         <div>
             <div className="mb-4 text-sm flex justify-between">
@@ -46,23 +48,29 @@ export default function CommentTable({
                 </div>
             ) : (
                 <>
-                    <table className="min-w-full text-sm">
+                    <table className="min-w-full table-fixed text-sm">
                         <thead className="bg-neutral-800 text-left hidden sm:table-header-group">
                             <tr>
-                                <th className="p-3">No</th>
-                                <th className="p-3">Comments</th>
-                                <th className="p-3">Accounts</th>
-                                <th className="p-3 text-center">Select</th>
+                                <th className="p-3 w-12">No</th>
+                                <th className="p-3 w-[50%]">Comments</th>
+                                <th className="p-3 w-[35%]">Accounts</th>
+                                <th className="p-3 w-[10%] text-center">
+                                    Select
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             {paginated.map((c, i) => (
                                 <tr key={c.id}>
-                                    <td className="p-3">
+                                    <td className="p-3 truncate">
                                         {(page - 1) * perPage + i + 1}
                                     </td>
-                                    <td className="p-3">{c.comment}</td>
-                                    <td className="p-3">{c.account}</td>
+                                    <td className="p-3 truncate">
+                                        {c.comment}
+                                    </td>
+                                    <td className="p-3 truncate">
+                                        {c.account}
+                                    </td>
                                     <td className="p-3 text-center">
                                         <input
                                             type="checkbox"
@@ -75,6 +83,16 @@ export default function CommentTable({
                                             }
                                         />
                                     </td>
+                                </tr>
+                            ))}
+                            {Array.from({
+                                length: perPage - paginated.length,
+                            }).map((_, i) => (
+                                <tr key={`empty-${i}`} className="opacity-0">
+                                    <td className="p-3">&nbsp;</td>
+                                    <td className="p-3"></td>
+                                    <td className="p-3"></td>
+                                    <td className="p-3"></td>
                                 </tr>
                             ))}
                         </tbody>
